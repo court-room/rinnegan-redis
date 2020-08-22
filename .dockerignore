@@ -1,9 +1,0 @@
-.git/
-.github/
-
-.deepsource.toml
-.dockerignore
-.gitignore
-docker-compose.yml
-Docekrfile
-README.md
