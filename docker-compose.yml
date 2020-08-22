@@ -1,0 +1,21 @@
+version: "3.8"
+
+networks:
+  backend:
+    external: true
+    name: "rinnegan-backend"
+  queue:
+    external: true
+    name: "rinnegan-queue"
+
+services:
+  redis:
+    container_name: rinnegan-redis
+    image: rinnegan-redis
+    networks:
+      - backend
+      - queue
+    ports:
+      - 6379:6379
+    build:
+      context: .
