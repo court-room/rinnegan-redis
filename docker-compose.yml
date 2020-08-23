@@ -1,5 +1,10 @@
 version: "3.8"
 
+volumes:
+  queue:
+    external: true
+    name: "rinnegan-queue-data"
+
 networks:
   backend:
     external: true
@@ -17,5 +22,7 @@ services:
       - queue
     ports:
       - 6379:6379
+    volumes:
+      - queue:/data
     build:
       context: .
