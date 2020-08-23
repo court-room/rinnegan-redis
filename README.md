@@ -11,7 +11,12 @@ Run the following commands for setting up the dependencies of your queue
 
   ```bash
   $ docker network create --attachable rinnegan-queue
-  6fcd14420464df8b6e1cba8d7007d99bdad9d76126b10f413907cc64b195cb53
+  ```
+
+- Create a volume with the given name
+
+  ```bash
+  $ docker volume create rinnegan-queue-data
   ```
 
 ## Setup
@@ -45,7 +50,7 @@ In order to use the queue start up the container using the following commands
 
   ```bash
   $ docker container exec --interactive --tty rinnegan-redis sh
-  /data#
+  /etc/redis #
   ```
 
 ## Contact
