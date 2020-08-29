@@ -4,8 +4,6 @@ LABEL maintainer="onlinejudge95"
 
 WORKDIR /etc/redis
 
-ARG REDIS_PASSWORD
-
 COPY . .
 
 RUN chmod +x ./bin/entrypoint.sh
