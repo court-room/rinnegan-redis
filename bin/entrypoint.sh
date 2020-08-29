@@ -1,3 +1,4 @@
 #!/bin/sh
 
-redis-server /etc/redis/redis.conf --appendonly yes
+sed "s/REDIS_PASSWORD_PLACEHOLDER/$/g"
+redis-server /etc/redis/config/redis.conf --appendonly yes
