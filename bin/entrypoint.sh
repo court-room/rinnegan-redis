@@ -1,3 +1,3 @@
 #!/bin/sh
 
-redis-server /etc/redis/redis.conf --appendonly yes
+redis-server /etc/redis/config/redis.conf --appendonly yes --requirepass "$REDIS_PASSWORD"

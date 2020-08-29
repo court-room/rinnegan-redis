@@ -4,10 +4,8 @@ LABEL maintainer="onlinejudge95"
 
 WORKDIR /etc/redis
 
-COPY ./config/redis.conf .
+COPY . .
 
-COPY ./bin/entrypoint.sh .
+RUN chmod +x ./bin/entrypoint.sh
 
-RUN chmod +x ./entrypoint.sh
-
-ENTRYPOINT [ "/etc/redis/entrypoint.sh" ]
+ENTRYPOINT [ "./bin/entrypoint.sh" ]
