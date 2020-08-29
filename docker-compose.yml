@@ -14,8 +14,6 @@ services:
   redis:
     container_name: rinnegan-redis
     image: rinnegan-redis
-    env_file:
-      - .env
     networks:
       - queue
     ports:
@@ -24,3 +22,5 @@ services:
       - queue:/data
     build:
       context: .
+      args:
+        REDIS_PASSWORD: rinnegan
