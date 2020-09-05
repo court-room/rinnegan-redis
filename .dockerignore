@@ -1,11 +1,9 @@
 .git/
 .github/
 
-bin/orchestrate.sh
+bin/build.sh
 config/users.acl
 .deepsource.toml
-.env*
 .*ignore
-docker-compose.yml
 Dockerfile
 *.md
