@@ -3,59 +3,33 @@
 [![docker Actions Status](https://github.com/court-room/rinnegan-redis/workflows/docker/badge.svg)](https://github.com/court-room/rinnegan-redis/actions)
 [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/court-room/rinnegan-redis/?ref=repository-badge)
 
-## Pre-Requisite
-
-Run the following commands for setting up the dependencies of your queue
-
-- Create a network with the given name
-
-  ```bash
-  $ docker network create --attachable rinnegan-queue
-  ```
-
-- Create a volume with the given name
-
-  ```bash
-  $ docker volume create rinnegan-queue-data
-  ```
-
-## Setup
+## Development
 
 The queue can be used for locally testing the server or the entire set of services.
-In order to use the queue start up the container using the following commands
+In order to use the queue you need to follow certain steps
 
-- Build the image
+- Build the image locally
 
   ```bash
-  $ docker-compose build --compress
+  $ docker build  --compress --force-rm --tag rinnegan-redis:latest .
   ```
 
-- Launch the container
+- Tag the latest image to local registry format
 
   ```bash
-  $ docker-compose up --detach
+  $ docker image tag rinnegan-redis:latest localhost:6000/rinnegan-redis:latest
+  ```
+
+- Push the image to the registry
+
+  ```bash
+  $ docker push localhost:6000/rinnegan-redis:latest
   ```
 
 _OPTIONAL_
 
-There is a shell script at `bin/orchestrate.sh` that handles the container setup, and tails the logs as well.
-
-## Development
-
-- In order to verify that the container is up
-
-  ```bash
-  $ docker container ls
-  CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                    NAMES
-  7dc266aca14d        rinnegan-redis               "docker-entrypoint.s…"   6 hours ago         Up 6 hours          0.0.0.0:6379->6379/tcp   rinnegan-redis
-  ```
-
-- To log in to the container and run custom commands
-
-  ```bash
-  $ docker container exec --interactive --tty rinnegan-redis sh
-  /etc/redis #
-  ```
+There is a shell script at `bin/build.sh` that handles the image build,
+tagging and pushing it to the local registry.
 
 ## Contact
 
