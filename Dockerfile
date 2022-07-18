@@ -1,4 +1,4 @@
-FROM redis:6.0.8-alpine
+FROM redis:7.0.3-alpine
 
 LABEL maintainer="onlinejudge95"
 
